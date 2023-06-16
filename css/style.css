@@ -1,20 +1,85 @@
-* {
-    box-sizing: border-box;
+
 }
 
 body { 
     height: 100vh;
     font-family: 'Oswald', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  
+}
+header{
+    text-align: center;
 }
 
+.angry-grid {
+   display: grid; 
 
-#{
+   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   
+   gap: 0px;
+   height: 100%;
+   
+}
+  
+#HANGMAN {
 
+   background-color: #cc5bc6; 
+   grid-row-start: 1;
+   grid-column-start: 4;
 
+   grid-row-end: 2;
+   grid-column-end: 6;
+   
+}
+#start {
+
+   background-color: #9f99b8; 
+   grid-row-start: 2;
+   grid-column-start: 1;
+
+   grid-row-end: 3;
+   grid-column-end: 3;
+   
+}
+#man {
+
+   background-color: #7feadc; 
+   grid-row-start: 2;
+   grid-column-start: 3;
+
+   grid-row-end: 4;
+   grid-column-end: 7;
+   
+}
+#wordline {
+
+   background-color: #5595ef; 
+   grid-row-start: 4;
+   grid-column-start: 3;
+
+   grid-row-end: 5;
+   grid-column-end: 7;
+   
+}
+#alpha {
+
+   background-color: #6a67a7; 
+   grid-row-start: 5;
+   grid-column-start: 3;
+
+   grid-row-end: 6;
+   grid-column-end: 7;
+   
+}
+#lives {
+
+   background-color: #5688de; 
+   grid-row-start: 2;
+   grid-column-start: 7;
+
+   grid-row-end: 3;
+   grid-column-end: 9;
+   
 }
 
 

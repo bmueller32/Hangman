@@ -1,11 +1,11 @@
 
-}
 
 body { 
     height: 100vh;
     font-family: 'Oswald', sans-serif;
-  
-}
+ 
+  }
+
 header{
     text-align: center;
 }
@@ -31,16 +31,20 @@ header{
    grid-column-end: 6;
    
 }
-#start {
+button {
 
-   background-color: #9f99b8; 
-   grid-row-start: 2;
-   grid-column-start: 1;
-
-   grid-row-end: 3;
-   grid-column-end: 3;
-   
-}
+    background-color:rgb(93, 191, 224); 
+    grid-row-start: 2;
+    grid-column-start: 1;
+ 
+    grid-row-end: 3;
+    grid-column-end: 3;
+    
+ }
+ button:hover {
+    color:white;
+    background-color:black;
+ }
 #man {
 
    background-color: #7feadc; 

@@ -1,5 +1,5 @@
 /*----- constants -----*/
-const countries = {
+const countries = [
 "UNITED STATES",
 "MEXICO",
 "INDONESIA",
@@ -9,14 +9,14 @@ const countries = {
 "GREENLAND",
 "MONGOLIA",
 "THAILAND",
-"BOLIVIA"
+"BOLIVIA"] ;
 
-}
 
 /*----- state variables -----*/
-let solution = " ";
-let lives = 6;
-let incorrect = 0;
+let solution = " "; //random country
+let lives = 6; //amount of lives 
+let errors = 0;
+let guesses = [];
 
 
 
@@ -29,17 +29,17 @@ let incorrect = 0;
 
 /*----- functions -----*/
 //initiate variable lives
-init();
-
+//init();
+randomC()
 
 
 
 function randomC() {
-solution = countries = Math.floor(Math.random() * countries.length )
-
+    solution = countries[Math.floor(Math.random() *countries.length )];
+   
 }
-console.log( randomC, countries[randomC])
-randomC();
+console.log(solution) 
+
 
 
 

@@ -14,8 +14,8 @@ const countries = [
 
 /*----- state variables -----*/
 let solution = " "; //random country
-let lives = 6; //amount of lives 
-let errors = 0;
+//let lives = 6; //amount of lives **icebox
+let errors = 0; // incorrect guesses
 let guesses = [];
 
 
@@ -30,22 +30,37 @@ let guesses = [];
 /*----- functions -----*/
 //initiate variable lives
 //init();
-randomC()
-
+randomC();
+makeAlpha();
 
 
 function randomC() {
-    solution = countries[Math.floor(Math.random() *countries.length )];
+    solution = countries[Math.floor(Math.random() * countries.length )];
    
 }
 console.log(solution) 
+randomC();
+render();
 
 
 
 
+//render keyboard
+function makeAlpha() {
 
+    let alphaHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
 
+        `<button
+        class="btn btn-lg btn-primary m-2"
+        id='${letter}'
+        onclick="handleGuess(${letter})"
+        >
+        ${letter}
+        </button>
+        `).join('');
 
+        document.getElementById('alpha').innerHTML = alphaHTML;
+}
 
 
 
@@ -57,7 +72,13 @@ console.log(solution)
 
 
 
+function render() {
 
+    renderMan;
+    renderMessage();
+    // Hide/show UI elements (controls)
+    renderControls();
+  }
 
 
 
@@ -118,3 +139,5 @@ console.log(solution)
 
 
 
+
+`

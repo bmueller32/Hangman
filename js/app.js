@@ -17,7 +17,7 @@ let solution = " "; //random country
 //let lives = 6; //amount of lives **icebox
 let errors = 0; // incorrect guesses
 let guesses = [];
-
+let playerWord = null;
 
 
 
@@ -28,7 +28,7 @@ let guesses = [];
 
 
 /*----- functions -----*/
-//initiate variable lives
+//initiate variable lives ** icebox
 //init();
 randomC();
 makeAlpha();
@@ -38,11 +38,8 @@ function randomC() {
     solution = countries[Math.floor(Math.random() * countries.length )];
    
 }
-console.log(solution) 
+//console.log(solution) 
 randomC();
-render();
-
-
 
 
 //render keyboard
@@ -63,22 +60,21 @@ function makeAlpha() {
 }
 
 
+function checkGuess() {
+  playerWord = solution.split('').map(letter => (guess.indexOf(letter) >= 0 ? letter : " _ ")).join('');
 
+  document.getElementById().innerHTML = playerWord;
+}
 
 
+document.getElementById('lives').innerHTML = lives;
 
 
 
 
 
 
-function render() {
 
-    renderMan;
-    renderMessage();
-    // Hide/show UI elements (controls)
-    renderControls();
-  }
 
 
 
@@ -136,8 +132,3 @@ function render() {
 
 
 
-
-
-
-
-`

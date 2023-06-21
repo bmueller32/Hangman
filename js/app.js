@@ -14,9 +14,9 @@ const countries = [
 
 /*----- state variables -----*/
 let solution = " "; //random country
-//let lives = 6; //amount of lives **icebox
+let lives = 6; // number of guesses
 let errors = 0; // incorrect guesses
-let guesses = [];
+let guesses = [];// player letters
 let playerWord = null;
 
 
@@ -35,7 +35,7 @@ updatePic();
 checkIfWinner();
 checkIfLoser();
 checkGuess();
-
+updateErrors();
 
 
 function randomC() {
@@ -58,10 +58,11 @@ function makeAlpha() {
         >
         ${letter}
         </button>
-        `).join('');
-
+        `).join(''); //get rid of commas
+         //connect with HTML
         document.getElementById('alpha').innerHTML = alphaHTML;
 }
+document.getElementById('lives').innerHTML = lives;
 //loop runs whiles lives >=0
 function playerChoice(letter) {
     guesses.indexOf(letter) === -1 ? guesses.push(letter) : null;

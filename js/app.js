@@ -28,10 +28,11 @@ let playerWord = null;
 
 
 /*----- functions -----*/
-//initiate variable lives ** icebox
-//init();
 randomC();
 makeAlpha();
+playerChoice();
+
+
 
 
 function randomC() {
@@ -50,7 +51,7 @@ function makeAlpha() {
         `<button
         class="btn btn-lg btn-primary m-2"
         id='${letter}'
-        onclick="handleGuess(${letter})"
+        onclick="playerChoice(${letter})"
         >
         ${letter}
         </button>
@@ -58,12 +59,48 @@ function makeAlpha() {
 
         document.getElementById('alpha').innerHTML = alphaHTML;
 }
+//loop runs whiles lives >=0
+function playerChoice(letter) {
+    guesses.indexOf(letter) === -1 ? guesses.push(letter) : null;
+    document.getElementById(letter).setAttribute('disabled', true);
+  
+    if (solution.indexOf(letter) >= 0) {
+      checkGuess();
+      checkIfWinner();
+    } else if (solution.indexOf(letter) === -1) {
+      errors++;
+      updateErrors();
+      checkIfLoser();
+      updatePic();
+    }
+  }
+ 
+ 
+  //update Hangman pic if incorrect
+function updatePic() {
+    document.getElementById('')
+  }
+
+//
+function checkIfWinner() {
+     if (playerWord === solution) {
+        document.getElementById('alpha').innerHTML = ' WINNER' ;
+    }
+}
+
+function checkIfLoser() {
+    if (errors === lives) {
+    document.getElementById('wordLine')
+   }
+
+}
+
 
 
 function checkGuess() {
   playerWord = solution.split('').map(letter => (guess.indexOf(letter) >= 0 ? letter : " _ ")).join('');
 
-  document.getElementById().innerHTML = playerWord;
+  document.getElementById('wordLine').innerHTML = playerWord;
 }
 
 

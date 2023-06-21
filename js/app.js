@@ -31,7 +31,10 @@ let playerWord = null;
 randomC();
 makeAlpha();
 playerChoice();
-
+updatePic();
+checkIfWinner();
+checkIfLoser();
+checkGuess();
 
 
 
@@ -75,38 +78,48 @@ function playerChoice(letter) {
     }
   }
  
- 
   //update Hangman pic if incorrect
 function updatePic() {
     document.getElementById('')
   }
 
-//
+//check if correct input
 function checkIfWinner() {
      if (playerWord === solution) {
         document.getElementById('alpha').innerHTML = ' WINNER' ;
     }
 }
-
+//check if incorrect input
 function checkIfLoser() {
     if (errors === lives) {
     document.getElementById('wordLine')
+    document.getElementById('alpha').innerHTML = 'LOSER'
    }
-
 }
 
+document.getElementById('lives').innerHTML = lives;
 
-
+//check player letter input
 function checkGuess() {
   playerWord = solution.split('').map(letter => (guess.indexOf(letter) >= 0 ? letter : " _ ")).join('');
 
   document.getElementById('wordLine').innerHTML = playerWord;
 }
+//update lives
+function updateErrors() {
+    document.getElementById('errors').innerHTML = errors;
+}
+//add pictures !!!
+function newGame() {
+errors = 0;
+guesses = [];
+document.getElementById('pic').src ='';
 
-
-document.getElementById('lives').innerHTML = lives;
-
-
+randomC();
+checkGuess();
+updateErrors();
+makeAlpha();
+}
 
 
 

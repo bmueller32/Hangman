@@ -59,16 +59,16 @@ function makeAlpha() {
   document.getElementById("alpha").innerHTML = alphaHTML;
 }
 
-// if the letter clicked by player(evt) is included (indexOf()) in the SOLUTION then the letter is set(toUpperCase()) and push() into the array, which calls checkGuess() and checkIfWinner. Else if the letter is not included(indexOf()) in the SOLUTION an ERROR is added ++ , updateErrors() and checkIfLoser() are called.
-function playerGuess(evt) {
-  guesses.push(evt.toUpperCase())
-  document.getElementById(evt).setAttribute('disabled', true);
-  console.log(solution.indexOf(evt.toUpperCase()))
- if (solution.indexOf(evt.toUpperCase()) >= 0) {
-    checkGuess(evt.toUpperCase());
+// if the letter clicked by player(clickedLetter) is included (indexOf()) in the SOLUTION then the letter is set(toUpperCase()) and push() into the array, which calls checkGuess() and checkIfWinner. Else if the letter is not included(indexOf()) in the SOLUTION an ERROR is added ++ , updateErrors() ,checkIfLoser(), and updatePic() are called.
+function playerGuess(clickedLetter) {
+  guesses.push(clickedLetter.toUpperCase())
+  document.getElementById(clickedLetter).setAttribute('disabled', true);
+ if (solution.indexOf(clickedLetter.toUpperCase()) >= 0) {
+    checkGuess(clickedLetter.toUpperCase());
     checkIfWinner();
-  } else if (solution.indexOf(evt.toUpperCase()) === -1) {
+  } else if (solution.indexOf(clickedLetter.toUpperCase()) === -1) {
     errors++; // add one to errors
+    updatePic();
     updateErrors();
     checkIfLoser();
   }
@@ -118,8 +118,9 @@ function newGame() {
   makeAlpha();
 }
 
+//update Hangman pic if incorrect
+function updatePic() {
+  document.getElementById("man").src = './Images/' + 'Hangman00'+ errors + '.png' ;
 
 
-
-
-
+}

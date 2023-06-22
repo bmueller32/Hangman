@@ -43,7 +43,7 @@ randomC();
 
 //render alphabet
 function makeAlpha() {
-  //split split string into an array of substrings ('') seperates words, map() creates new array with with results of calling the function,join()creates new string by concatenating all of the elements in an array
+  // split string into an array of substrings ('') seperates words, map() creates new array with with results of calling the function,join()creates new string by concatenating all of the elements in an array
   let alphaHTML = "abcdefghijklmnopqrstuvwxyz".split('').map(letter =>
       `
         <button
@@ -59,10 +59,9 @@ function makeAlpha() {
   document.getElementById("alpha").innerHTML = alphaHTML;
 }
 
-//indexof checks input. if player guess isnt = to letter in solution then -1
+// if the letter clicked by player(evt) is included (indexOf()) in the SOLUTION then the letter is set(toUpperCase()) and push() into the array, which calls checkGuess() and checkIfWinner. Else if the letter is not included(indexOf()) in the SOLUTION an ERROR is added ++ , updateErrors() and checkIfLoser() are called.
 function playerGuess(evt) {
   guesses.push(evt.toUpperCase())
-  console.log(evt)
   document.getElementById(evt).setAttribute('disabled', true);
   console.log(solution.indexOf(evt.toUpperCase()))
  if (solution.indexOf(evt.toUpperCase()) >= 0) {

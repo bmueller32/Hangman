@@ -26,20 +26,22 @@ let playerWord = null;
 /*----- functions -----*/
 randomC();
 makeAlpha();
-
 updatePic();
 checkIfWinner();
 checkIfLoser();
 checkGuess();
 updateErrors();
+newGame()
 
+
+// select random country from array
 function randomC() {
   solution = countries[Math.floor(Math.random() * countries.length)];
 }
-//console.log(solution)
+
 randomC();
 
-//render keyboard
+//render alphabet
 function makeAlpha() {
   let alphaHTML = "abcdefghijklmnopqrstuvwxyz".split('').map(letter =>
       `
@@ -57,14 +59,14 @@ function makeAlpha() {
 }
 
 //loop runs whiles lives >=0
-function playerGuess(guessLetter) {
-  guesses.indexOf(guessLetter) === -1 ? guesses.push(guessLetter) : null;
-  document.getElementById(guessLetter).setAttribute("disabled", true);
+function playerGuess(evt) {
+   evt = evt.toUpperCase()
+  document.getElementById(evt).setAttribute('disabled', true);
 
- if (solution.indexOf(guessLetter) >= 0) {
+ if (solution.indexOf(evt) >= 0) {
     checkGuess();
     checkIfWinner();
-  } else if (solution.indexOf(guessLetter) === -1) {
+  } else if (solution.indexOf(evt) === -1) {
     errors++; // add one to errors
     updateErrors();
     checkIfLoser();
@@ -72,13 +74,33 @@ function playerGuess(guessLetter) {
   }
 }
 
+//update Hangman pic if incorrect
+function updatePic() {
+  document.getElementById("pic");
+}
+updatePic();
+
+
+//check if correct input
+function checkIfWinner() {
+  console.log(playerWord, solution)
+  if (playerWord === solution) {
+    document.getElementById("alpha").innerHTML = " WINNER";
+  }
+}
+
+//check if incorrect input
+function checkIfLoser() {
+  if (errors === lives) {
+    document.getElementById("wordLine");
+    document.getElementById("alpha").innerHTML = "Someone doesnt know their Geography ";
+  }
+}
+
 //check player letter input
 function checkGuess() {
-  playerWord = solution
-    .split("")
-    .map((letter) => (guesses.indexOf(letter) >= 0 ? letter : " _ "))
-    .join("");
-
+  playerWord = solution.split("").map((letter) => (guesses.indexOf(letter) >= 0 ? letter : " _ ")).join("");
+console.log(playerWord)
   document.getElementById("wordLine").innerHTML = playerWord;
 }
 checkGuess();
@@ -89,38 +111,21 @@ function updateErrors() {
 }
 updateErrors();
 
-//connect lives: with HTML
-document.getElementById("lives").innerHTML = lives;
-
-//update Hangman pic if incorrect
-function updatePic() {
-  document.getElementById("");
-}
-updatePic();
-
-//check if correct input
-function checkIfWinner() {
-  if (playerWord === solution) {
-    document.getElementById("alpha").innerHTML = " WINNER";
-  }
-}
-
-//check if incorrect input
-function checkIfLoser() {
-  if (errors === lives) {
-    document.getElementById("wordLine");
-    document.getElementById("alpha").innerHTML = "LOSER";
-  }
-}
-
 //add pictures !!!
 function newGame() {
   errors = 0;
   guesses = [];
-  document.getElementById("pic").src = "";
+  document.getElementById("man").src = "./Images/Hangman00.png ";
 
   randomC();
   checkGuess();
   updateErrors();
   makeAlpha();
 }
+//connect lives: with HTML
+document.getElementById("lives").innerHTML = lives;
+
+
+
+
+

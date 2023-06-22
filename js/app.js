@@ -1,10 +1,10 @@
 /*----- constants -----*/
 const countries = [
-  "UNITED STATES",
+  "CANADA",
   "MEXICO",
   "INDONESIA",
-  "NEW ZEALAND",
-  "SOUTH KOREA",
+  "AUSTRALIA",
+  "AFGANISTAN",
   "NORWAY",
   "GREENLAND",
   "MONGOLIA",
@@ -59,7 +59,7 @@ function makeAlpha() {
   document.getElementById("alpha").innerHTML = alphaHTML;
 }
 
-//indexof checks input. if not included -1
+//indexof checks input. if player guess isnt = to letter in solution then -1
 function playerGuess(evt) {
   guesses.push(evt.toUpperCase())
   console.log(evt)
@@ -90,7 +90,7 @@ function checkIfLoser() {
   }
 }
 
-//if player letter= to 
+//if player letter = to letter in solution then add letter if not -1 and ( _ )
 function checkGuess(letter) {
   playerWord = solution.split("").map((letter) => (guesses.indexOf(letter) >= 0 ? letter : " _ ")).join("");
  //defines player word/ if letter correct prints to wordline

@@ -23,8 +23,8 @@ header{
   }
 
 .flex-container {
-    background:white;
-    border: 3px solid white;
+    background:rgb(120, 226, 191);
+    border: 3px solid rgb(120, 226, 191);
     border-radius: 5px;
     padding: 8px;
     justify-content: center;
@@ -42,6 +42,19 @@ margin-top: 50px;
 }
 
 
+
+#alpha > button{
+   background-color: #cbd8cb; 
+   border: 2px solid;
+   border: radius 8px ;
+   color:black;
+  
+   text-align: center;
+   text-decoration: none;
+   display: ;
+   
+
+}
 
 
 

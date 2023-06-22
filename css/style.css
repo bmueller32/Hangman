@@ -44,9 +44,9 @@ margin-top: 50px;
 
 
 #alpha > button{
-   background-color: #cbd8cb; 
+   background-color:  rgb(120, 226, 191);
    border: 2px solid;
-   border: radius 8px ;
+   border: radius 4px;
    color:black;
   
    text-align: center;

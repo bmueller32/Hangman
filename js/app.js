@@ -26,16 +26,16 @@ let playerWord = null;
 /*----- functions -----*/
 randomC();
 makeAlpha();
-updatePic();
 checkIfWinner();
 checkIfLoser();
 checkGuess();
 updateErrors();
-newGame()
+
 
 
 // select random country from array
 function randomC() {
+  //correctword = array[rounds down to whole number(returns random number) x length of countries array)]
   solution = countries[Math.floor(Math.random() * countries.length)];
 }
 
@@ -43,6 +43,7 @@ randomC();
 
 //render alphabet
 function makeAlpha() {
+  //split split string into an array of substrings ('') seperates words, map() creates new array with with results of calling the function,join()creates new string by concatenating all of the elements in an array
   let alphaHTML = "abcdefghijklmnopqrstuvwxyz".split('').map(letter =>
       `
         <button
@@ -58,7 +59,7 @@ function makeAlpha() {
   document.getElementById("alpha").innerHTML = alphaHTML;
 }
 
-//loop runs whiles lives >=0
+//indexof checks input. if not included -1
 function playerGuess(evt) {
   guesses.push(evt.toUpperCase())
   console.log(evt)
@@ -71,25 +72,17 @@ function playerGuess(evt) {
     errors++; // add one to errors
     updateErrors();
     checkIfLoser();
-    updatePic();
   }
 }
 
-//update Hangman pic if incorrect
-function updatePic() {
-  document.getElementById("man").src = './Images/' + 'Hangman00' + '.png' ;
-}
-updatePic();
-
-
-//check if correct input
+//check if correct input does playerWord===solution if so print winner
 function checkIfWinner() {
   if (playerWord === solution) {
     document.getElementById("alpha").innerHTML = " WINNER";
   }
 }
 
-//check if incorrect input
+//check if incorrect input if errors ===lives then game over
 function checkIfLoser() {
   if (errors === lives) {
     document.getElementById("wordLine");
@@ -97,32 +90,35 @@ function checkIfLoser() {
   }
 }
 
-//check player letter input
+//if player letter= to 
 function checkGuess(letter) {
   playerWord = solution.split("").map((letter) => (guesses.indexOf(letter) >= 0 ? letter : " _ ")).join("");
-console.log(playerWord,'this is a player word')
+ //defines player word/ if letter correct prints to wordline
   document.getElementById("wordLine").innerHTML = playerWord;
 }
 checkGuess();
+
 //update lives
 function updateErrors() {
   document.getElementById("errors").innerHTML = errors;
 }
 updateErrors();
 
-//add pictures !!!
+//connect lives: with HTML
+document.getElementById("lives").innerHTML = lives;
+
+// new game= reset
 function newGame() {
   errors = 0;
   guesses = [];
-  document.getElementById("man").src = "./Images/Hangman00.png ";
+  
 
   randomC();
   checkGuess();
   updateErrors();
   makeAlpha();
 }
-//connect lives: with HTML
-document.getElementById("lives").innerHTML = lives;
+
 
 
 

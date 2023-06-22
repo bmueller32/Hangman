@@ -44,18 +44,16 @@ margin-top: 50px;
 
 
 #alpha > button{
-   background-color:  rgb(120, 226, 191);
+   background-color:  rgb(50, 190, 146);
    border: 2px solid;
-   border: radius 4px;
+   border-radius: 8px;
    color:black;
   
    text-align: center;
    text-decoration: none;
    display: ;
-   
-
 }
-
+ {border-radius: 8px;}
 
 
 

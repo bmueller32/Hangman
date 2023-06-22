@@ -10,18 +10,8 @@ header{
     text-align: center;
 }
 
-
-
-
-
-  .flex-container {
-
+.flex-container {
     display: flex;
-    
-    
-    
-    /* flex-flow: row nowrap; */ 
-    
     flex-wrap: nowrap; 
     flex-direction: column;
     background-color: #bbdefb;
@@ -32,9 +22,9 @@ header{
 
   }
 
-  .flex-container {
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
+.flex-container {
+    background:white;
+    border: 3px solid white;
     border-radius: 5px;
     padding: 8px;
     justify-content: center;
@@ -58,7 +48,11 @@ margin-top: 50px;
 
 
 
+#man{
+width:15em; 
+height:20em;
 
+}
 
 
 

@@ -60,13 +60,14 @@ function makeAlpha() {
 
 //loop runs whiles lives >=0
 function playerGuess(evt) {
-   evt = evt.toUpperCase()
+  guesses.push(evt.toUpperCase())
+  console.log(evt)
   document.getElementById(evt).setAttribute('disabled', true);
-
- if (solution.indexOf(evt) >= 0) {
-    checkGuess();
+  console.log(solution.indexOf(evt.toUpperCase()))
+ if (solution.indexOf(evt.toUpperCase()) >= 0) {
+    checkGuess(evt.toUpperCase());
     checkIfWinner();
-  } else if (solution.indexOf(evt) === -1) {
+  } else if (solution.indexOf(evt.toUpperCase()) === -1) {
     errors++; // add one to errors
     updateErrors();
     checkIfLoser();
@@ -76,14 +77,13 @@ function playerGuess(evt) {
 
 //update Hangman pic if incorrect
 function updatePic() {
-  document.getElementById("pic");
+  document.getElementById("man").src = './Images/' + 'Hangman00' + '.png' ;
 }
 updatePic();
 
 
 //check if correct input
 function checkIfWinner() {
-  console.log(playerWord, solution)
   if (playerWord === solution) {
     document.getElementById("alpha").innerHTML = " WINNER";
   }
@@ -98,13 +98,12 @@ function checkIfLoser() {
 }
 
 //check player letter input
-function checkGuess() {
+function checkGuess(letter) {
   playerWord = solution.split("").map((letter) => (guesses.indexOf(letter) >= 0 ? letter : " _ ")).join("");
-console.log(playerWord)
+console.log(playerWord,'this is a player word')
   document.getElementById("wordLine").innerHTML = playerWord;
 }
 checkGuess();
-
 //update lives
 function updateErrors() {
   document.getElementById("errors").innerHTML = errors;

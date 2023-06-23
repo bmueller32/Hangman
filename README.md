@@ -4,6 +4,7 @@ Hangman Countries is a digital version of a classic game usually drawn on a whit
 
 
 
+![Screenshot 2023-06-23 062827](https://github.com/bmueller32/Hangman/assets/134901733/543e4c79-326f-47f1-8252-1f24407e9b1d)
 
 
 

@@ -106,21 +106,10 @@ updateErrors();
 //connect lives: with HTML
 document.getElementById("lives").innerHTML = lives;
 
-// new game= reset
-function newGame() {
-  errors = 0;
-  guesses = [];
-  
-
-  randomC();
-  checkGuess();
-  updateErrors();
-  makeAlpha();
-}
 
 //update Hangman pic if incorrect
 function updatePic() {
-  document.getElementById("man").src = './Images/' + 'Hangman00'+ errors + '.png' ;
+  document.getElementById("man").src = './Images/' + 'Hangman0'+ errors + '.png' ;
 
 
 }
